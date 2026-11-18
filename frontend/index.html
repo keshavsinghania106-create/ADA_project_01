@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Railflow · Reservation Simulator</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">R</span><span>railflow<span class="brand-dot">.</span></span></a>
+    <div class="top-note"><span class="status-dot"></span> Reservation simulator</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR NEXT JOURNEY, SIMPLIFIED</p>
+      <h1>Find your way<br><em>to somewhere new.</em></h1>
+      <p class="hero-copy">Search trains, reserve a seat, and keep your journey details close at hand.</p>
+      <div class="hero-stamp">✳ &nbsp; SEAT-BY-SEAT AVAILABILITY</div>
+    </section>
+
+    <section class="panel search-panel">
+      <div class="section-heading"><div><span class="step">01</span><h2>Where are you headed?</h2></div><span class="heading-caption">SEARCH TRAINS</span></div>
+      <form id="search-form" class="search-grid">
+        <label>From<select id="from-code" required></select></label>
+        <button id="swap" class="swap-button" type="button" aria-label="Swap stations">↔</button>
+        <label>To<select id="to-code" required></select></label>
+        <label>Journey date<input id="journey-date" type="date" required></label>
+        <div class="search-actions">
+          <button class="button button-dark search-button" type="submit" data-mode="direct">Direct trains <span>→</span></button>
+          <button class="button button-light search-button" type="submit" data-mode="fastest">Fastest route <span>↗</span></button>
+        </div>
+      </form>
+      <div id="search-message" class="message" role="status"></div>
+      <div id="train-results" class="train-results"></div>
+    </section>
+
+    <section class="panel booking-panel" id="booking-panel">
+      <div class="section-heading"><div><span class="step">02</span><h2>Passenger details</h2></div><span class="heading-caption">NEW BOOKING</span></div>
+      <p class="muted" id="selected-run-copy">Search and select a train to start a booking.</p>
+      <form id="booking-form">
+        <div id="passengers" class="passengers"></div>
+        <div class="form-actions">
+          <button id="add-passenger" class="button button-light" type="button">＋ Add passenger</button>
+          <button class="button button-green" type="submit">Reserve seats <span>→</span></button>
+        </div>
+      </form>
+      <div id="booking-message" class="message" role="status"></div>
+      <div id="booking-result"></div>
+    </section>
+
+    <section class="panel lookup-panel">
+      <div class="section-heading"><div><span class="step">03</span><h2>Manage a booking</h2></div><span class="heading-caption">PNR LOOKUP</span></div>
+      <form id="lookup-form" class="lookup-form">
+        <label>Enter your PNR<input id="pnr-input" maxlength="10" placeholder="e.g. RF12AB34CD" required></label>
+        <button class="button button-dark" type="submit">Find booking <span>→</span></button>
+      </form>
+      <div id="lookup-message" class="message" role="status"></div>
+      <div id="lookup-result"></div>
+    </section>
+  </main>
+
+  <footer><span>RAILFLOW RESERVATION SIMULATOR</span><span>SEGMENT-AWARE · TRANSACTION-SAFE</span></footer>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
